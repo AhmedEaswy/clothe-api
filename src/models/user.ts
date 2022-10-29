@@ -50,25 +50,25 @@ User.init({
     type: new DataTypes.STRING,
     allowNull: true,
   },
-},
-    {
-      getterMethods: {
+}, {sequelize}
+    // {
+    //   getterMethods: {
 
-        auth(userData: userData): void {
-          try {
-            const user = User.findOne({
-              where: {
-                email: userData.email
-              }
-            })
-            console.log(user)
-          } catch (e) {
-            console.log(e)
-          }
-        }
+      //   auth(userData: userData): void {
+      //     try {
+      //       const user = User.findOne({
+      //         where: {
+      //           email: userData.email
+      //         }
+      //       })
+      //       console.log(user)
+      //     } catch (e) {
+      //       console.log(e)
+      //     }
+      //   }
 
-      },
-      sequelize
-    },
+      // },
+      // sequelize
+    // },
     );
 
