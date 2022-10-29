@@ -92,23 +92,23 @@ const destroy = async (req: Request, res: Response) => {
     }
 }
 
-const auth = async (req: Request, res: Response) => {
-    try {
-        const userData = {
-            email: req.body.email.toLowerCase(),
-            password: req.body.password
-        }
-        const user = User.auth(userData)
-            const token = jwt.sign({ user: user }, secret, { expiresIn: '1h' })
-            res.json({
-                user,
-                token: token
-            })
-    } catch (err) {
-        console.log(err)
-        res.json(err)
-    }
-}
+// const auth = async (req: Request, res: Response) => {
+//     try {
+//         const userData = {
+//             email: req.body.email.toLowerCase(),
+//             password: req.body.password
+//         }
+//         const user = User.auth(userData)
+//             const token = jwt.sign({ user: user }, secret, { expiresIn: '1h' })
+//             res.json({
+//                 user,
+//                 token: token
+//             })
+//     } catch (err) {
+//         console.log(err)
+//         res.json(err)
+//     }
+// }
 
 const authToken = async (req: Request, res: Response) => {
 //     try {
@@ -135,7 +135,7 @@ const users_routes = (app: express.Application) => {
     // app.put('/users/:id', VerifyUserIsMe, update)
     app.delete('/users/:id', destroy)
     // // users auth routes
-    app.post('/login', auth)
+    // app.post('/login', auth)
     // app.post('/auth', authToken)
 }
 
